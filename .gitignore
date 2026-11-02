@@ -1,1 +1,10 @@
+# Rust
 /target
+
+# Python
+__pycache__/
+.venv/
+
+# Data
+data/raw/
+data/processed/
