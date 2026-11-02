@@ -9,7 +9,7 @@ from py_data.loaders import (
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = PROJECT_ROOT / "data" / "csv"
 
-
+# This script is only used to generate CSV files for human inspection
 def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
