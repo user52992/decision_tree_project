@@ -1,20 +1,9 @@
-
-from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
-
-from py_data.loaders import load_covtype
-
+from py_data.preprocess_covtype import preprocess_covtype
 
 def main():
-    X, y = load_covtype() # TODO 多种数据集预处理后的数据
-
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y,
-        test_size=0.2,
-        random_state=42,
-        stratify=y,
-    )
+    X_train, X_test, y_train, y_test = preprocess_covtype(0.2)
 
     model = DecisionTreeClassifier(random_state=42)
 
@@ -25,7 +14,6 @@ def main():
     accuracy = accuracy_score(y_test, predictions)
 
     print(f"Accuracy: {accuracy:.4f}")
-
 
 if __name__ == "__main__":
     main()

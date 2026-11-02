@@ -1,4 +1,3 @@
-
 from pathlib import Path
 from py_data.loaders import (
     load_covtype,
@@ -31,7 +30,6 @@ def main():
         df.to_csv(output_path, index=False)
 
         print(f"Saved to {output_path}")
-
 
 if __name__ == "__main__":
     main()

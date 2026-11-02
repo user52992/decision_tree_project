@@ -1,10 +1,8 @@
-
 from py_data.loaders import (
     load_covtype,
     load_adult,
     load_kddcup99,
 )
-
 
 def main():
     datasets = {
@@ -19,7 +17,6 @@ def main():
         X, y = loader()
 
         print(f"{name}: {X.shape[0]} samples, {X.shape[1]} features")
-
 
 if __name__ == "__main__":
     main()
