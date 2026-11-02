@@ -1,9 +1,10 @@
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
-from py_data.preprocess_covtype import preprocess_covtype
+# from py_data.preprocess_covtype import preprocess_covtype
+from py_data.preprocess_adult import preprocess_adult
 
 def main():
-    X_train, X_test, y_train, y_test = preprocess_covtype(0.2)
+    X_train, X_test, y_train, y_test = preprocess_adult(0.2)
 
     model = DecisionTreeClassifier(random_state=42)
 
