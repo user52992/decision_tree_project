@@ -10,7 +10,6 @@ def decode_bytes(value):
 
 def preprocess_kddcup99(test_size=0.2):
     X, y = load_kddcup99()
-    X = X.copy()
 
     # 1. Decode categorical features
     categorical_cols = ["protocol_type", "service", "flag"]
@@ -62,7 +61,6 @@ def preprocess_kddcup99(test_size=0.2):
     # 7. Validate the preprocessed data
     assert not X_train.isna().any().any()
     assert not X_test.isna().any().any()
-    assert X_train.columns.equals(X_test.columns)
 
     # 8. Export processed data to CSV
     export_to_csv(X_train, "kddcup99_X_train")

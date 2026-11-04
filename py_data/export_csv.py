@@ -23,11 +23,10 @@ def main():
 
         X, y = loader()
 
-        df = X.copy()
-        df["target"] = y
+        X["target"] = y
 
         output_path = OUTPUT_DIR / f"{name}.csv"
-        df.to_csv(output_path, index=False)
+        X.to_csv(output_path, index=False)
 
         print(f"Saved to {output_path}")
 

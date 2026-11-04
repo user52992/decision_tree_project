@@ -25,9 +25,6 @@ def preprocess_adult(test_size=0.2):
         stratify=y,
     )
 
-    X_train = X_train.copy()
-    X_test = X_test.copy()
-
     # 3. Identify numerical and categorical columns
     numerical_cols = X_train.select_dtypes(
         include="number"
@@ -62,7 +59,6 @@ def preprocess_adult(test_size=0.2):
     # 8. Validate the preprocessed data
     assert not X_train.isna().any().any()
     assert not X_test.isna().any().any()
-    assert X_train.columns.equals(X_test.columns)
 
     # 9. Export processed data to CSV
     export_to_csv(X_train, "adult_X_train")

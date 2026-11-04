@@ -14,7 +14,7 @@ def main():
     for name, loader in datasets.items():
         print(f"Loading {name}...")
 
-        X, y = loader()
+        X, _ = loader()
 
         print(f"{name}: {X.shape[0]} samples, {X.shape[1]} features")
 
