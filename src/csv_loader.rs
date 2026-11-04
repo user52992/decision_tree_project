@@ -3,12 +3,10 @@ use std::error::Error;
 use std::path::PathBuf;
 
 fn get_path(file_name: &str) -> PathBuf {
-    let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+    PathBuf::from(env!("CARGO_MANIFEST_DIR"))
         .join("data")
         .join("processed")
-        .join(format!("{}.csv", file_name));
-
-    path
+        .join(format!("{file_name}.csv"))
 }
 
 pub fn read_features(file_name: &str) -> Result<Vec<Vec<f64>>, Box<dyn Error>> {

@@ -6,6 +6,7 @@
         "kddcup",
         "openml",
         "pycache",
+        "rescanning",
         "venv"
     ]
 }
