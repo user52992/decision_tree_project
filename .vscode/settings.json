@@ -1,12 +1,17 @@
 {
     "cSpell.words": [
+        "ascontiguousarray",
+        "cdylib",
         "Covertype",
         "covtype",
         "gini",
         "kddcup",
         "openml",
         "pycache",
+        "pyfunction",
+        "pymodule",
         "rescanning",
+        "rlib",
         "venv"
     ]
 }
