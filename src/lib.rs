@@ -14,7 +14,7 @@ fn benchmark_rust(
     y_train: Vec<usize>,
     x_test: Vec<Vec<f64>>,
     max_depth: usize,
-) -> PyResult<(Vec<usize>, f64, f64)> {
+) -> PyResult<(Vec<usize>, Vec<usize>, f64, f64)> {
     if x_train.is_empty() || x_train.len() != y_train.len() {
         return Err(PyValueError::new_err(
             "Training features and labels must have the same nonzero length",
@@ -39,10 +39,18 @@ fn benchmark_rust(
         let train_seconds = start.elapsed().as_secs_f64();
 
         let start = Instant::now();
-        let predictions = tree.predict(&x_test);
+        let test_predictions = tree.predict(&x_test);
         let predict_seconds = start.elapsed().as_secs_f64();
 
-        (predictions, train_seconds, predict_seconds)
+        // Training-set predictions are only for accuracy and are outside both timers.
+        let train_predictions = tree.predict(&x_train);
+
+        (
+            train_predictions,
+            test_predictions,
+            train_seconds,
+            predict_seconds,
+        )
     }))
 }
 
